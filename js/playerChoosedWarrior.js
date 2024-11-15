@@ -1,4 +1,11 @@
 const playerChoosedWarrior = function playerChoosedWarrior(){
+  function setStatus(){
+    let damage = player.status.dmg;
+    const equipedItems = player.bag.equipped;
+    damage = (equipedItems.weapon.firstHand.itemStatus.str + equipedItems.weapon.firstHand.dmg) / 2;
+    player.status.dmg = damage;
+    return console.log("status updated");
+  };
     const basicRoleMoves = {
       warCry: {
         cost: {
@@ -54,7 +61,7 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
           cannot: ["Use as regular attack", "Use without weapon"]
         },
         use: function(target){
-          if (target.hp <= player.status.dmg){
+          if (target.hp + target.def <= player.status.dmg + player.status.str){
             player.status.exp += target.status.exp;
             player.status.krm += target.status.krm;
             target.status.hp = 0;
@@ -107,6 +114,9 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
         ruleSet: {
           situation: ["Single enemy combat"],
           cannot: ["Paralyzed"]
+        },
+        use: function(target){
+
         }
       },
       stab: {
@@ -126,5 +136,6 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
     player.bag.equipped.armor.weist = warriorStarterItems.equiped.armor.weist;
     player.bag.equipped.armor.legs = warriorStarterItems.equiped.armor.legs;
     player.bag.equipped.armor.feets = warriorStarterItems.equiped.armor.feets;
+    player.status.dmg = setStatus();
     return console.log("YOU CHOOSED WARRIOR CLASS");
   };
