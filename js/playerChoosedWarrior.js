@@ -61,7 +61,7 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
           cannot: ["Use as regular attack", "Use without weapon"]
         },
         use: function(target){
-          if (target.hp + target.def <= player.status.dmg + player.status.str){
+          if (target.hp + (target.def / 2) <= player.status.dmg + player.status.str){
             player.status.exp += target.status.exp;
             player.status.krm += target.status.krm;
             target.status.hp = 0;
@@ -90,6 +90,58 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
         slot: [generate("Small healing potion", "Quick reload", "Less heal", 0.1, 3, {}, 10, 0)]
       }
     };
+    const weaponAttack = {
+      slash: {
+        cost: {
+          type: null,
+        },
+        ruleSet: {
+          situation: ["Single enemy combat"],
+          cannot: ["Paralyzed"]
+        },
+        use: function(target){
+          let targetHP = target.hp + (target.def / 2);
+          const damage = player.status.dmg;
+          targetHP -= damage;
+          target.hp = targetHP;
+          return console.log(`${player.name} used slash`)
+        }
+      },
+      stab: {
+        cost: {
+          type: "Stamina",
+          amount: 1,
+        },
+        ruleSt: {
+          situation: ["Single enemy combat"],
+          cannot: ["Paralyzed", "Without stamina"]
+        },
+        use: function(target){
+          const damage = player.dmg;
+          let targetHP = target.hp;
+          const moveCost = this.cost.amount;
+          let playerStamina = player.status.sta;
+          const verifyStamina = function verifyStamina() {
+            if (playerStamina >= moveCost) {
+              playerStamina -= moveCost;
+              player.status.sta = playerStamina;
+              targetHP -= damage;
+              target.hp = targetHP;
+              return console.log(`${player.name} used stab`)
+            } else {
+              return console.log("Not enough stamina to use stab");
+            }
+          }
+          const checkForSabotageAndContinue = function checkForSabotage(){
+            if (player.act.combatOptions.weaponAttack.stab.cost === "Stamina"){
+              return verifyStamina();
+            } else {
+              return console.log(`${player.name} was sabotaged`)
+            }
+          }
+        }
+      },
+    }
     player.role = "Warrior";
     player.status.lvl = 1;
     player.status.hp = 50;
@@ -106,30 +158,7 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
     player.bag.stored.slot += warriorStarterItems.stored.slot;
     player.act.combatOptions.roleAttack = basicRoleMoves;
     player.bag.equipped.weapon = warriorStarterItems.equiped.weapon;
-    player.act.combatOptions.weaponAttack = {
-      slash: {
-        cost: {
-          type: null,
-        },
-        ruleSet: {
-          situation: ["Single enemy combat"],
-          cannot: ["Paralyzed"]
-        },
-        use: function(target){
-
-        }
-      },
-      stab: {
-        cost: {
-          type: "Stamina",
-          amount: 1,
-        },
-        ruleSt: {
-          situation: ["Single enemy combat"],
-          cannot: ["Paralyzed", "Without stamina"]
-        }
-      },
-    }
+    player.act.combatOptions += weaponAttack;
     player.bag.equipped.armor.head = warriorStarterItems.equiped.armor.head;
     player.bag.equipped.armor.neck = warriorStarterItems.equiped.armor.neck;
     player.bag.equipped.armor.chest = warriorStarterItems.equiped.armor.chest;

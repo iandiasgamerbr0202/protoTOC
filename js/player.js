@@ -153,13 +153,13 @@ const player = {
   },
   target_s: [
     {
-      id:null,lvl:null,hp: null,exp:null,def:null,str:null,spd:null,agi:null,end:null,sta:null,krm:null,int:null,dex:null,attention:false
+      id:null,lvl:null,hp: null,exp:null,def:null,str:null,spd:null,agi:null,end:null,sta:null,krm:null,int:null,dex:null,selected:false
     },
     {
-      id:null,lvl:null,hp: null,exp:null,def:null,str:null,spd:null,agi:null,end:null,sta:null,krm:null,int:null,dex:null,attention:false
+      id:null,lvl:null,hp: null,exp:null,def:null,str:null,spd:null,agi:null,end:null,sta:null,krm:null,int:null,dex:null,selected:false
     },
     {
-      id:null,lvl:null,hp: null,exp:null,def:null,str:null,spd:null,agi:null,end:null,sta:null,krm:null,int:null,dex:null,attention:false
+      id:null,lvl:null,hp: null,exp:null,def:null,str:null,spd:null,agi:null,end:null,sta:null,krm:null,int:null,dex:null,selected:false
     }
   ]
 };
