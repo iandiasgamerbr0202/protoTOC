@@ -18,20 +18,19 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
         },
         use: function(){
           if (player.status.sta >= 5 && basicRoleMoves.warCry.cost.type === "Stamina"){
-            player.status.sta - basicRoleMoves.warCry.cost.amount
+            player.status.sta - basicRoleMoves.warCry.cost.amount;
           } else if (player.status.sta < basicRoleMoves.warCry.cost.amount){
-            return console.log("Not enough Stamina to use War Cry!")
+            return console.log("Not enough Stamina to use War Cry!");
           } else if (basicRoleMoves.warCry.cost.type !== "Stamina"){
-            return console.log("Incompatible cost type!")
-          }
-          else if (player.target_s[0].id === null && player.target_s[1] === null && player.target_s[2] === null ){
-            return console.log("There is no target(s)")
+            return console.log("Incompatible cost type!");
+          } else if (player.target_s[0].id === null && player.target_s[1] === null && player.target_s[2] === null ){
+            return console.log("There is no target(s)");
           } else {
             player.target_s[0].attention = true;
             player.target_s[1].stunned = true;
             player.target_s[2].attention = true;
-            return console.log(`${player.name} use War Cry!`)
-          }
+            return console.log(`${player.name} use War Cry!`);
+          };
         }
       },
       rage: {
@@ -45,10 +44,10 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
         },
         use: function(){
           if (player.status.hp <= player.status.hp / 2){
-            player.status.stamina = player.status.hp - basicRoleMoves.rage.cost
-            player.status.bonus = {str: {effect:+5, time: 3}, spd: {effect:+5, time: 3}, dmg: {effect:+5, time:3}}
-            return console.log(`${player.name} use Rage!`)
-          }
+            player.status.stamina = player.status.hp - basicRoleMoves.rage.cost;
+            player.status.bonus = {str: {effect:+5, time: 3}, spd: {effect:+5, time: 3}, dmg: {effect:+5, time:3}};
+            return console.log(`${player.name} use Rage!`);
+          };
         }
       },
       sparingAttack: {
@@ -66,8 +65,8 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
             player.status.krm += target.status.krm;
             target.status.hp = 0;
             player.status.hp += 10;
-            return console.log(`${player.name} sparingly hit ${target.name} and killed it!`)
-          }
+            return console.log(`${player.name} sparingly hit ${target.name} and killed it!`);
+          };
         }
       },
     };
@@ -92,9 +91,7 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
     };
     const weaponAttack = {
       slash: {
-        cost: {
-          type: null,
-        },
+        cost: null,
         ruleSet: {
           situation: ["Single enemy combat"],
           cannot: ["Paralyzed"]
@@ -104,7 +101,7 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
           const damage = player.status.dmg;
           targetHP -= damage;
           target.hp = targetHP;
-          return console.log(`${player.name} used slash`)
+          return console.log(`${player.name} used slash`);
         }
       },
       stab: {
@@ -127,7 +124,7 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
               player.status.sta = playerStamina;
               targetHP -= damage;
               target.hp = targetHP;
-              return console.log(`${player.name} used stab`)
+              return console.log(`${player.name} used stab`);
             } else {
               return console.log("Not enough stamina to use stab");
             }
@@ -136,10 +133,12 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
             if (player.act.combatOptions.weaponAttack.stab.cost === "Stamina"){
               return verifyStamina();
             } else {
-              return console.log(`${player.name} was sabotaged`)
-            }
-          }
-        }
+              return console.log(`${player.name} was sabotaged`);
+            };
+
+          };
+          checkForSabotageAndContinue();
+        },
       },
     }
     player.role = "Warrior";
