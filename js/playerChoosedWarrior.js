@@ -85,8 +85,8 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
           secondHand: {}
         }
       },
-      stored: {
-        slot: [generate("Small healing potion", "Quick reload", "Less heal", 0.1, 3, {}, 10, 0)]
+    stored: {
+      slot: [generate("Small healing potion", "Quick reload", "Less heal", 0.1, 3, {}, 10, 0)]
       }
     };
     const weaponAttack = {

@@ -6,8 +6,28 @@ const playerChoosedRogue = function playerChoosedRogue(){
     player.status.dmg = damage;
     return console.log("status updated");
   };
-  const basicRoleMoves = {};
-  const rogueStarterItems = {};
+  const basicRoleMoves = {
+    kick: {
+      cost: {},
+      ruleSet: {},
+      use: function (){}
+    },
+    dodge:{},
+    cammoflage: {},
+    sprint: {},
+    stealth: {}
+  };
+  const rogueStarterItems = {
+    equiped: {
+      armor: {},
+      weapon: {
+        firstHand: {},
+        secondHand: {}
+      }
+    },
+    stored: {}
+
+  };
   const weaponAttack = {};
     player.role = "Rogue";
     player.status.lvl = 1;
