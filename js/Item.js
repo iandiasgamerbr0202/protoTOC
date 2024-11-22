@@ -34,4 +34,3 @@ function  generate(itemName,itemAdvantages, itemNerfs, itemWeight, itemAmount, i
   return generatedItem;
 }
 
-
