@@ -16,7 +16,7 @@ const playerChoosedRogue = function playerChoosedRogue(){
         situation: [],
         cannot: []
       },
-      use: function (){
+      use: function use(){
 
       }
     },
@@ -29,7 +29,7 @@ const playerChoosedRogue = function playerChoosedRogue(){
         situation: [],
         cannot: []
       },
-      use: function (){
+      use: function use(){
 
       }
     },
@@ -42,7 +42,7 @@ const playerChoosedRogue = function playerChoosedRogue(){
         situation: [],
         cannot: []
       },
-      use: function (){
+      use: function use(){
 
       }
     },
@@ -55,7 +55,7 @@ const playerChoosedRogue = function playerChoosedRogue(){
         situation:{},
         cannot: []
       },
-      use: function (){
+      use: function use(){
 
       }
     },
@@ -65,17 +65,24 @@ const playerChoosedRogue = function playerChoosedRogue(){
         amount: 1
       },
       ruleSet: {},
-      use: function (){
+      use: function use(){
 
       }
     }
   };
   const rogueStarterItems = {
     equiped: {
-      armor: {},
+      armor: {
+        head: {},
+        neck: {},
+        chest: {},
+        weist: {},
+        legs: {},
+        feets: {}
+      },
       weapon: {
-        firstHand: {},
-        secondHand: {}
+        firstHand: generate(),
+        secondHand: nulll,
       }
     },
     stored: {}

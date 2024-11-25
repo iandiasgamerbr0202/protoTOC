@@ -76,6 +76,7 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
           head: null,
           neck: null,
           chest: generate("Leather Chest",null,null,0.5,1,{def:3,str:0,agi:0,spd:0,},0, 0),
+          hands: null,
           weist: generate("Leather Belt", null, null, 1, 1, {def:0,str:0,agi:1,spd:0}, 0, 0),
           legs: generate("Leather Pants", null, null, 1, 1, {def:1,str:0,agi:0,spd:1}, 0, 0),
           feets: generate("Leather Boots", null, null, 0.3, 1, {def:0,str:0,agi:2,spd:0}, 0, 0)
