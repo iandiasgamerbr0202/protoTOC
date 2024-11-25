@@ -25,28 +25,49 @@ const playerChoosedRogue = function playerChoosedRogue(){
         type: "Combo Points",
         amount: 1
       },
-      ruleSet: {}
+      ruleSet: {
+        situation: [],
+        cannot: []
+      },
+      use: function (){
+
+      }
     },
     cammoflage: {
       cost: {
         type: "Combo Points",
         amount: 1
       },
-      ruleSet: {}
+      ruleSet: {
+        situation: [],
+        cannot: []
+      },
+      use: function (){
+
+      }
     },
     sprint: {
       cost: {
         type: "Stamina",
         amount: null
       },
-      ruleSet: {}
+      ruleSet: {
+        situation:{},
+        cannot: []
+      },
+      use: function (){
+
+      }
     },
     stealth: {
       cost: {
         type: "Combo Points",
         amount: 1
       },
-      ruleSet: {}
+      ruleSet: {},
+      use: function (){
+
+      }
     }
   };
   const rogueStarterItems = {
@@ -71,6 +92,7 @@ const playerChoosedRogue = function playerChoosedRogue(){
     player.status.sta = 14;
     player.status.krm = 0;
     player.status.krm + 1;
+    player.status.comboPoints = 0;
     player.status.int = 13;
     player.status.dex = 10;
     return alert("YOU CHOOSED ROGUE CLASS");
