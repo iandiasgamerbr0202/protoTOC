@@ -10,11 +10,11 @@ const playerChoosedRogue = function playerChoosedRogue(){
     kick: {
       cost: {
         type: "Stamina",
-        amount: null
+        amount: 5
       },
       ruleSet: {
-        situation: [],
-        cannot: []
+        situation: ["One target", "Cancelling target moves"],
+        cannot: ["Paralyzed"]
       },
       use: function use(){
 
