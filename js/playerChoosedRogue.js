@@ -14,9 +14,10 @@ const playerChoosedRogue = function playerChoosedRogue(){
       },
       ruleSet: {
         situation: ["One target", "Cancelling target moves"],
-        cannot: ["Paralyzed"]
+        cannot: ["Paralyzed", "Broken leg or legs"]
       },
-      use: function use(){
+      use: function use(target){
+        let targetStatus = target.status;
 
       }
     },
@@ -29,8 +30,8 @@ const playerChoosedRogue = function playerChoosedRogue(){
         situation: [],
         cannot: []
       },
-      use: function use(){
-
+      use: function use(target){
+        let targetStatus = target.status;
       }
     },
     cammoflage: {
@@ -42,8 +43,8 @@ const playerChoosedRogue = function playerChoosedRogue(){
         situation: [],
         cannot: []
       },
-      use: function use(){
-
+      use: function use(target){
+        let targetStatus = target.status;
       }
     },
     sprint: {
@@ -55,8 +56,8 @@ const playerChoosedRogue = function playerChoosedRogue(){
         situation:{},
         cannot: []
       },
-      use: function use(){
-
+      use: function use(target){
+        let targetStatus = target.status;
       }
     },
     stealth: {
@@ -65,8 +66,8 @@ const playerChoosedRogue = function playerChoosedRogue(){
         amount: 1
       },
       ruleSet: {},
-      use: function use(){
-
+      use: function use(target){
+        let targetStatus = target.status;
       }
     }
   };
