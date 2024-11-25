@@ -8,14 +8,46 @@ const playerChoosedRogue = function playerChoosedRogue(){
   };
   const basicRoleMoves = {
     kick: {
-      cost: {},
-      ruleSet: {},
-      use: function (){}
+      cost: {
+        type: "Stamina",
+        amount: null
+      },
+      ruleSet: {
+        situation: [],
+        cannot: []
+      },
+      use: function (){
+
+      }
     },
-    dodge:{},
-    cammoflage: {},
-    sprint: {},
-    stealth: {}
+    dodge:{
+      cost: {
+        type: "Combo Points",
+        amount: 1
+      },
+      ruleSet: {}
+    },
+    cammoflage: {
+      cost: {
+        type: "Combo Points",
+        amount: 1
+      },
+      ruleSet: {}
+    },
+    sprint: {
+      cost: {
+        type: "Stamina",
+        amount: null
+      },
+      ruleSet: {}
+    },
+    stealth: {
+      cost: {
+        type: "Combo Points",
+        amount: 1
+      },
+      ruleSet: {}
+    }
   };
   const rogueStarterItems = {
     equiped: {
