@@ -18,7 +18,9 @@ const playerChoosedRogue = function playerChoosedRogue(){
       },
       use: function use(target){
         let targetStatus = target.status;
-
+        player.status.sta - this.cost.amount;
+        targetStatus = targetStatus.hp -= player.status.dmg / 2;
+        return console.log(`${player.name} used kick`);
       }
     },
     dodge:{
