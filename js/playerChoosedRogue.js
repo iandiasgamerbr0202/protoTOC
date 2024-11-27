@@ -67,14 +67,19 @@ const playerChoosedRogue = function playerChoosedRogue(){
     sprint: {
       cost: {
         type: "Stamina",
-        amount: null
+        amount: 2
       },
       ruleSet: {
-        situation:{},
-        cannot: []
+        situation:["Open place", "Must not be in combat"],
+        cannot: ["Tired", "Slowed", "Broken leg"]
       },
-      use: function use(target){
-        let targetStatus = target.status;
+      use: function use(){
+        if (player.status.sta >= this.cost.amount){
+          player.status.sta -= this.cost.amount;
+          return console.log(`${player.name} used sprint`);
+        } else {
+          return console.log("Not enough Stamina to use sprint!");
+        }
       }
     },
     stealth: {
@@ -83,8 +88,13 @@ const playerChoosedRogue = function playerChoosedRogue(){
         amount: 1
       },
       ruleSet: {},
-      use: function use(target){
-        let targetStatus = target.status;
+      use: function use(){
+        if (player.status.comboPoints){
+          player.status.comboPoints -= this.cost.amount;
+          return console.log(`${player.name} used stealth`);
+        } else {
+          return console.log("Not enough Combo Points to use stealth!");
+        }
       }
     }
   };
