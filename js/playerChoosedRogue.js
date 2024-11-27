@@ -130,5 +130,8 @@ const playerChoosedRogue = function playerChoosedRogue(){
     player.status.comboPoints = 0;
     player.status.int = 13;
     player.status.dex = 10;
+    player.act.combatOptions.roleAttack = basicRoleMoves;
+    player.act.combatOptions.weaponAttack = weaponAttack;
+    player.bag.equipped.armor = rogueStarterItems.equiped.armor;
     return alert("YOU CHOOSED ROGUE CLASS");
   };
