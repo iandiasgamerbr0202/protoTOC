@@ -101,16 +101,16 @@ const playerChoosedRogue = function playerChoosedRogue(){
   const rogueStarterItems = {
     equiped: {
       armor: {
-        head: {},
-        neck: {},
-        chest: {},
-        weist: {},
-        legs: {},
-        feets: {}
+        head: generate(),
+        neck: generate(),
+        chest: generate(),
+        weist: generate(),
+        legs: generate(),
+        feets: generate()
       },
       weapon: {
         firstHand: generate(),
-        secondHand: nulll,
+        secondHand: generate(),
       }
     },
     stored: {}
