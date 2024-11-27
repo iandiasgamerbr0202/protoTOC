@@ -66,7 +66,9 @@ const playerChoosedWarrior = function playerChoosedWarrior(){
             target.status.hp = 0;
             player.status.hp += 10;
             return console.log(`${player.name} sparingly hit ${target.name} and killed it!`);
-          };
+          } else if (target.hp > 0){
+            return console.log(`${player.name} cannot kill ${target.name}`);
+          }
         }
       },
     };
