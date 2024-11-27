@@ -18,9 +18,13 @@ const playerChoosedRogue = function playerChoosedRogue(){
       },
       use: function use(target){
         let targetStatus = target.status;
-        player.status.sta - this.cost.amount;
+        if (player.status.sta >= this.cost.amount){
+          player.status.sta -= this.cost.amount;
         targetStatus = targetStatus.hp -= player.status.dmg / 2;
         return console.log(`${player.name} used kick`);
+        } else {
+          return console.log("Not enough Stamina to use kick!");
+        };
       }
     },
     dodge:{
@@ -29,11 +33,17 @@ const playerChoosedRogue = function playerChoosedRogue(){
         amount: 1
       },
       ruleSet: {
-        situation: [],
-        cannot: []
+        situation: ["Expected impact", "Directional impact"],
+        cannot: ["Surprise attack", "Area attack"]
       },
       use: function use(target){
         let targetStatus = target.status;
+        if(player.status.comboPoints >= this.cost.amount) {
+          player.status.comboPoints -= this.cost.amount;
+          return console.log(`${player.name} used dodge`);
+        } else {
+          return console.log("Not enough Combo Points to use dodge!");
+        }
       }
     },
     cammoflage: {
@@ -42,11 +52,16 @@ const playerChoosedRogue = function playerChoosedRogue(){
         amount: 1
       },
       ruleSet: {
-        situation: [],
-        cannot: []
+        situation: ["Must use before combat"],
+        cannot: ["In combat"]
       },
-      use: function use(target){
-        let targetStatus = target.status;
+      use: function use(){
+        if (player.status.comboPoints >= this.cost.amount) {
+          player.status.comboPoints -= this.cost.amount;
+          return console.log(`${player.name} used cammoflage`);
+        } else {
+          return console.log("Not enough Combo Points to use cammoflage!");
+        }
       }
     },
     sprint: {
