@@ -36,8 +36,7 @@ const playerChoosedRogue = function playerChoosedRogue(){
         situation: ["Expected impact", "Directional impact"],
         cannot: ["Surprise attack", "Area attack"]
       },
-      use: function use(target){
-        let targetStatus = target.status;
+      use: function use(){
         if(player.status.comboPoints >= this.cost.amount) {
           player.status.comboPoints -= this.cost.amount;
           return console.log(`${player.name} used dodge`);
