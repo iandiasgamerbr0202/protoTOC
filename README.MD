@@ -11,3 +11,6 @@ This prototype will be used as a test for the project, that means that not every
 But it will follow the same rules
 
 Good luck
+
+
+For more information please read the project updates on the project field
